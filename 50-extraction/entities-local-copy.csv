@@ -1,0 +1,19 @@
+"title","description","identifier","valueTemplate","validValues","default","examples","parent","entityRef","fieldRef","owner","list","collapsing","repeating","recurring","recursing","identifying"
+"Study identifier","Unique identifier for this study","studyId","xdoi",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"General comments","Any general comments the coder wants to add about this study","comments","string",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Year of publication","Year article was published","yearPublished","integer.length4",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Authors","Authors of the article","authors","string",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Emails","Email addresses of the authors","emails","string",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Country","Country (or countries) where the data were collected","country","countrycode",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Application","Information about the e-health application","app",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Device","Device type for which the application was developed, e.g. 'smartwatch', 'vr', 'smartphone', etc","app.device",NA,NA,NA,NA,"app",NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Platform","The platform, e.g. android, windows, etc","app.platform",NA,NA,NA,NA,"app",NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Target groups","Description of the target group(s) of the intervention","targetGroup",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Target group age","Age of the target group","tg.age",NA,NA,NA,NA,"targetGroup",NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Target group specification","Specification of the defining characteristics of this target group (e.g. a health issue, (sub-)culture, region, gender, etc)","tg.spec",NA,NA,NA,NA,"targetGroup",NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Methods","Description of the methods used by the study","methods",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Evaluaton","Whether this article describes the results of an evaluation (including effect size estimates) or not.","isEvaluation","categorical","TRUE || FALSE",NA,NA,"methods",NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Sample","Sample characteristics (for empirical articles)","sample",NA,NA,NA,NA,"methods",NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Sample size","Total number of human participants in the study (note: the actual sample size may be larger if multiple observations are collected per participant)","N","integer",NA,NA,NA,"sample",NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Sex","Sex distribution of the sample",NA,NA,NA,NA,NA,"sample",NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Age","Age of the target group",NA,NA,NA,NA,NA,"sample",NA,NA,NA,NA,NA,NA,NA,NA,NA
