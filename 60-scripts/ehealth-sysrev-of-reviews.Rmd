@@ -7,6 +7,8 @@ editor_options:
   chunk_output_type: console
 ---
 
+The Open Science Framework repositor for this project is located at https://osf.io/gbef3/, and the GitHub repo is at https://github.com/Matherion/ehealth-sysrev-of-reviews.
+
 ```{r setup, include=FALSE}
 ########################################################################
 ### Load packages
