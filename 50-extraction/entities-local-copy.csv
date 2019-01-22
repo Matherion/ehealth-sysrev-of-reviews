@@ -1,6 +1,7 @@
 "title","description","identifier","valueTemplate","validValues","default","examples","parent","entityRef","fieldRef","owner","list","collapsing","repeating","recurring","recursing","identifying"
 "Study identifier","Unique identifier for this study","studyId","xdoi",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "General comments","Any general comments the coder wants to add about this study","comments","string",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"inReviews","The review or reviews that include this article.","reviews","xdoi.multi",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "Year of publication","Year article was published","yearPublished","integer.length4",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "Authors","Authors of the article","authors","string",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 "Emails","Email addresses of the authors","emails","string",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA

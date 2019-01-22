@@ -1,6 +1,6 @@
 ---
 title: "Systematic Review Extraction Script Template"
-date: "22 jan 2019 at 14:33:04"
+date: "22 jan 2019 at 14:50:58"
 output:
   html_document:
     self-contained: yes
@@ -137,6 +137,44 @@ study <- Node$new('study');
   study$comments[['validation']] <- expression(is.na(VALUE) || (is.character(VALUE) && length(VALUE) == 1));
   ##############################################################################
   ############################################################ END: comments ###
+  ##############################################################################
+
+
+  ##############################################################################
+  ########################################################### START: reviews ###
+  ##############################################################################
+  study$AddChild('reviews');
+  study$reviews[['value']] <-
+  ##############################################################################
+  ### 
+  ### INREVIEWS
+  ### 
+  ### The review or reviews that include this article.
+  ### 
+  ##############################################################################
+      
+      c("enter xdoi here", "enter a second xdoi here, or remove this")
+      
+  ##############################################################################
+  ########################################### VALUE DESCRIPTION AND EXAMPLES ###
+  ##############################################################################
+  ### 
+  ### For studies with a DOI, "doi:" directly followed by the DOI; for
+  ### studies without a DOI, the DOI prefix of the publisher (see
+  ### https://gist.github.com/TomDemeranville/8699224), followed by a
+  ### slash, followed by the ISSN, followed by a dash, followed by the
+  ### year of publication, followed by a dash, followed by the starting
+  ### page. If no DOI prefix can be located, instead use 'NA'.
+  ### 
+  ### EXAMPLES:
+  ### 
+  ### c("doi:10.18637/jss.v036.i03", "nodoi:10.1111/0965-2140/2003-951")
+  ### "doi:10.1136/bmj.2.2288.1243"
+  ### 
+  ##############################################################################
+  study$reviews[['validation']] <- expression(all(nchar(VALUE)>10));
+  ##############################################################################
+  ############################################################# END: reviews ###
   ##############################################################################
 
 

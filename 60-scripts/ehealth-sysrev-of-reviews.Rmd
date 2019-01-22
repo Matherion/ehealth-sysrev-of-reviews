@@ -1,6 +1,6 @@
 ---
-title: "Title"
-author: "Authors"
+title: "ODHI sysrev"
+author: "Gill, Dom, GJ, Rik, Robbert"
 date: "`r format(Sys.time(), '%H:%M:%S on %Y-%m-%d %Z (GMT%z)')`"
 output: html_document
 editor_options: 
@@ -91,16 +91,18 @@ queries[[length(queries) + 1]] <-
              conceptName = "Ehealth",
              "ehealth",
              "e-health",
+             "mhealth",
+             "m-health",
              "digital health",
              "app"),
            query_conceptTerms(conceptName = "review",
                               "review",
-                              "meta-analysis"))),
+                              "meta-analys*"))),
        databases = list(psycinfo = list(interface = "ebsco",
                                         fileFormat = "ris"),
                         pubmed = list(interface= "pubmed",
                                       fileFormat = "ris")),
-       fields = "title, abstract");
+       fields = "title");
 
 ### Note that PsycINFO subsumes PsycARTICLES, and PubMed subsumes MEDLINE (see
 ### "Is PsycARTICLES cross-linked with any outside databases or journals?" at
@@ -113,7 +115,7 @@ queries[[length(queries) + 1]] <-
 
 The first query is:
 
-```{r query1-visual, screenshot.force=FALSE, fig.height=20}
+```{r query1-visual, screenshot.force=FALSE, fig.height=5}
 plot(queries[[1]]$query);
 ```
 
