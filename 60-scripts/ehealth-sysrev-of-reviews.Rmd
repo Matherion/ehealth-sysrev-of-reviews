@@ -82,6 +82,10 @@ options(figCapCounter = 0);
 
 ################################# Adjust date!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
+###----------------------------------------------------------------------------
+### Specify first query
+###----------------------------------------------------------------------------
+
 queries[[length(queries) + 1]] <-
   list(date = ymd("2019-02-01"),
        query = query_full(
@@ -109,6 +113,14 @@ queries[[length(queries) + 1]] <-
 ### http://www.apa.org/pubs/databases/psycarticles/faq.aspx for PsycINFO and
 ### and http://askus.library.tmc.edu/faq/2018 for MEDLINE
 
+###----------------------------------------------------------------------------
+### Specify screening exclusion criteria - should correspond to query concepts
+###----------------------------------------------------------------------------
+
+screening_exclusion_criteria <-
+  c(noReview = "This article does not describe a review or meta-analysis",
+    noEhealth = "This article is not about ehealth/digital health");
+
 ```
 
 ## First query, executed at: `r queries[[1]]$date;`
@@ -125,15 +137,15 @@ In this query, the searched terms must occur in entries' `r queries[[1]]$fields`
 
 In the interface language of the PubMed interface to the PubMed database and the Ebscohost and Ovid interfaces to a variety of databases such as PsycINFO, PsycArticles, and MedLine, this query renders as:
 
-```{r}
+```{r query-1-convert-to-interface-languages, echo=TRUE, eval=TRUE}
 query_toInterfaceLang(queries[[1]]$query,
                       fields=queries[[1]]$fields,
                       exclude=queries[[1]]$exclude);
 ```
 
-This query was run at `r queries[[1]]$date;` in PubMed (XXXX hits; file saved as <code>pubmed-`r queries[[1]]$date`.ris</code>) and PsycINFO accessed through EbscoHost (XXXX hits; file saved as <code>psycinfo-`r queries[[1]]$date`.ris</code>), and exported to RIS format (called 'MEDLINE' in PubMed). The RIS files were then imported in R using `metabefor`.
+This query was run at `r queries[[1]]$date;`. The hits were exported from the bibliographic database interface and stored locally in the study repository. They were then imported.
 
-```{r echo=TRUE, eval=FALSE}
+```{r query-1-import-hits, echo=TRUE, eval=FALSE}
 
 ### Import PsycINFO hits
 firstQueryIteration_psycinfo <-
@@ -145,6 +157,8 @@ firstQueryIteration_psycinfo <-
                                  queries[[1]]$databases[[1]]$fileFormat)),
                 encoding="native.enc");
 
+firstQueryHits_psycinfo <- nrow(firstQueryIteration_psycinfo$records);
+
 ### Import PubMed hits
 firstQueryIteration_pubmed <-
   importRISlike(file.path(queryHitExportPath,
@@ -154,6 +168,14 @@ firstQueryIteration_pubmed <-
                                  names(queries[[1]]$databases)[2], ".",
                                  queries[[1]]$databases[[2]]$fileFormat)),
                 encoding="native.enc");
+
+firstQueryHits_pubmed <- nrow(firstQueryIteration_pubmed$records);
+
+```
+
+The query in PubMed (`r # firstQueryHits_psycinfo` hits; file saved as <code>pubmed-`r queries[[1]]$date`.ris</code>) and PsycINFO accessed through EbscoHost (`r # firstQueryHits_pubmed` hits; file saved as <code>psycinfo-`r queries[[1]]$date`.ris</code>), and exported to RIS format (called 'MEDLINE' in PubMed). The RIS files were then imported in R using `metabefor`.
+
+```{r query-1-merge-hits, echo=TRUE, eval=FALSE}
 
 ### Merge the two sets of hits
 firstQueryIteration <-
@@ -186,14 +208,6 @@ sysrevExport(firstQueryIteration,
 The merged list of query hits has now been exported to file <code>`r #screening1_filename_pre`</code> in directory "screening" and can be opened using JabRef, which can be downloaded from https://www.fosshub.com/JabRef.html.
 
 # Screening
-
-```{r exclusion-criteria}
-
-screening_exclusion_criteria <-
-  c(noReview = "This article does not describe a review or meta-analysis",
-    noEhealth = "This article is not about ehealth/digital health");
-
-```
 
 ## JabRef configuration
 
