@@ -2,14 +2,18 @@
 title: "ODHI sysrev"
 author: "Gill, Dom, GJ, Rik, Robbert"
 date: "`r format(Sys.time(), '%H:%M:%S on %Y-%m-%d %Z (GMT%z)')`"
-output: html_document
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    code_folding: hide
 editor_options: 
   chunk_output_type: console
 ---
 
 The Open Science Framework repositor for this project is located at https://osf.io/gbef3/, and the GitHub repo is at https://github.com/Matherion/ehealth-sysrev-of-reviews.
 
-```{r setup, include=FALSE}
+```{r setup, include=FALSE, echo=TRUE}
 ########################################################################
 ### Load packages
 ########################################################################
@@ -36,7 +40,7 @@ require('metabefor');
 ########################################################################
 
 ### By default hide R code
-knitr::opts_chunk$set(echo = FALSE);
+knitr::opts_chunk$set(echo = TRUE);
 knitr::opts_chunk$set(comment = NA);
 
 ### Set path for query hit exports
@@ -80,7 +84,7 @@ options(figCapCounter = 0);
 <!-- the date in that header is read from this object) ---------------->
 <!--------------------------------------------------------------------->
 
-```{r first-query-setup}
+```{r first-query-setup, echo=TRUE}
 
 ################################# Adjust date!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -128,10 +132,6 @@ screening_exclusion_criteria <-
 ## First query, executed at: `r queries[[1]]$date;`
 
 The first query is:
-
-```{r query1-visual, echo=TRUE, eval=FALSE}
-plot(queries[[1]]$query);
-```
 
 ```{r query1-visual-export, screenshot.force=FALSE, fig.height=5, echo=FALSE}
 ### Saving file as .png and including it afterwards to show it on
