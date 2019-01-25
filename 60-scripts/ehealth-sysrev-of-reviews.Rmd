@@ -130,8 +130,15 @@ screening_exclusion_criteria <-
 The first query is:
 
 ```{r query1-visual, screenshot.force=FALSE, fig.height=5}
-plot(queries[[1]]$query);
+### Saving file as .png and including it afterwards to 
+#plot(queries[[1]]$query);
+forExport <- data.tree::ToDiagrammeRGraph(queries[[1]]$query);
+query1export <- file.path(workingPath, "query1.png");
+DiagrammeR::export_graph(forExport,
+                         query1export);
 ```
+
+![Figure 1: Conceptual visualisation of query 1.](`r query1export`)
 
 In this plot, the 'AND' operator is visualised by a solid line, while the 'OR' operator is visualised by a dotted line.
 
