@@ -129,9 +129,13 @@ screening_exclusion_criteria <-
 
 The first query is:
 
-```{r query1-visual, screenshot.force=FALSE, fig.height=5}
-### Saving file as .png and including it afterwards to 
-#plot(queries[[1]]$query);
+```{r query1-visual, echo=TRUE, eval=FALSE}
+plot(queries[[1]]$query);
+```
+
+```{r query1-visual-export, screenshot.force=FALSE, fig.height=5, echo=FALSE}
+### Saving file as .png and including it afterwards to show it on
+### GitHub preview
 forExport <- data.tree::ToDiagrammeRGraph(queries[[1]]$query);
 query1export <- file.path(workingPath, "query1.png");
 DiagrammeR::export_graph(forExport,
